@@ -59,7 +59,6 @@ const generator = new TypescriptBulkDefinitionGenerator();
         "org.dcm4che3.util.StringUtils",
         "org.dcm4che3.util.TagUtils",
         "org.dcm4che3.util.UIDUtils",
-        "org.dcm4che3.tool.dcmqrscp.RetrieveTaskImpl",
         "org.dcm4che3.tool.dcmqrscp.SendStgCmtResult",
         "org.github.chinlinlee.dcm777.net.BasicModCFindSCP",
         "org.github.chinlinlee.dcm777.net.BasicModQueryTask",
@@ -78,6 +77,7 @@ const generator = new TypescriptBulkDefinitionGenerator();
         "org.github.chinlinlee.dcm777.net.SimpleCGetSCP",
         "org.github.chinlinlee.dcm777.net.SimpleStgCmtSCP",
         "org.github.chinlinlee.dcm777.dcmqrscp.SendStgCmtResult",
+        "org.github.chinlinlee.dcm777.dcmqrscp.RetrieveTaskImpl",
         "org.dcm4che3.tool.common.CLIUtils",
         "org.dcm4che3.net.SSLManagerFactory"
     ]);
