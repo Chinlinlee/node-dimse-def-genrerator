@@ -78,8 +78,27 @@ const generator = new TypescriptBulkDefinitionGenerator();
         "org.github.chinlinlee.dcm777.net.SimpleStgCmtSCP",
         "org.github.chinlinlee.dcm777.dcmqrscp.SendStgCmtResult",
         "org.github.chinlinlee.dcm777.dcmqrscp.RetrieveTaskImpl",
+        "org.github.chinlinlee.dcm777.common.Common",
         "org.dcm4che3.tool.common.CLIUtils",
-        "org.dcm4che3.net.SSLManagerFactory"
+        "org.dcm4che3.net.SSLManagerFactory",
+        "org.dcm4che3.audit.ActiveParticipant",
+        "org.dcm4che3.audit.ActiveParticipantBuilder",
+        "org.dcm4che3.audit.AuditMessage",
+        "org.dcm4che3.audit.AuditMessages",
+        "org.dcm4che3.audit.AuditMessages$EventActionCode",
+        "org.dcm4che3.audit.AuditMessages$RoleIDCode",
+        "org.dcm4che3.audit.AuditMessages$ParticipantObjectDataLifeCycle",
+        "org.dcm4che3.audit.AuditMessages$ParticipantObjectIDTypeCode",
+        "org.dcm4che3.audit.AuditMessages$ParticipantObjectTypeCode",
+        "org.dcm4che3.audit.AuditMessages$ParticipantObjectTypeCodeRole",
+        "org.dcm4che3.audit.AuditMessages$NetworkAccessPointTypeCode",
+        "org.dcm4che3.audit.EventIdentification",
+        "org.dcm4che3.audit.EventIdentificationBuilder",
+        "org.dcm4che3.audit.ParticipantObjectDescription",
+        "org.dcm4che3.audit.ParticipantObjectDetail",
+        "org.dcm4che3.audit.ParticipantObjectIdentification",
+        "org.dcm4che3.audit.ParticipantObjectIdentificationBuilder",
+        "org.dcm4che3.audit.SOPClass"
     ]);
 
     // Save the definitions to a directory
