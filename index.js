@@ -1,7 +1,21 @@
+const { readFile, writeFile } = require("fs/promises");
 const path = require("path");
 const glob = require("glob");
 const { appendClasspath, ensureJvm } = require("java-bridge");
 const { TypescriptBulkDefinitionGenerator } = require("java-ts-definition-generator");
+
+async function replaceToString() {
+    let tsFiles = glob.sync("**/*.ts", {
+        root: path.join(__dirname, "./src/java-wrapper")
+    });
+    console.log(tsFiles.length);
+    for(let tsFile of tsFiles) {
+        let content = await readFile(tsFile, "utf-8");
+        content = content.replace("public toString(): Promise<string>;", "public toString(): string;");
+        await writeFile(tsFile, content, "utf-8");
+    }
+}
+
 
 let depJarFiles = glob.sync("**/*.jar", {
     root: path.join(__dirname, "./java-jars")
@@ -110,4 +124,6 @@ const generator = new TypescriptBulkDefinitionGenerator();
 
     // Save the definitions to a directory
     await generator.save(path.join(__dirname, "./src/java-wrapper"));
+
+    await replaceToString();
 })();
