@@ -11,17 +11,17 @@ ensureJvm();
 for (let i = 0; i < depJarFiles.length; i++) {
     appendClasspath(depJarFiles);
 }
-
 const generator = new TypescriptBulkDefinitionGenerator();
-
 (async () => {
     // Generate definitions for the provided modules
     await generator.generate([
+        "org.dcm4che3.data.ElementDictionary",
         "org.dcm4che3.data.Tag",
         "org.dcm4che3.data.UID",
         "org.dcm4che3.data.Attributes",
         "org.dcm4che3.data.Sequence",
         "org.dcm4che3.data.VR",
+        "org.dcm4che3.json.JSONWriter",
         "org.dcm4che3.io.DicomInputStream",
         "org.dcm4che3.io.DicomOutputStream",
         "org.dcm4che3.io.DicomInputStream$IncludeBulkData",
@@ -53,6 +53,7 @@ const generator = new TypescriptBulkDefinitionGenerator();
         "org.dcm4che3.net.service.BasicRetrieveTask",
         "org.dcm4che3.net.service.DicomService",
         "org.dcm4che3.net.service.DicomServiceRegistry",
+        "org.dcm4che3.net.service.InstanceLocator",
         "org.dcm4che3.tool.common.FilesetInfo",
         "org.dcm4che3.util.AttributesFormat",
         "org.dcm4che3.util.SafeClose",
@@ -67,11 +68,12 @@ const generator = new TypescriptBulkDefinitionGenerator();
         "org.github.chinlinlee.dcm777.net.PatientQueryTask",
         "org.github.chinlinlee.dcm777.net.PatientQueryTaskInject",
         "org.github.chinlinlee.dcm777.net.QueryTaskInject",
-        "org.github.chinlinlee.dcm777.net.QueryTaskOptions",
         "org.github.chinlinlee.dcm777.net.StudyQueryTask",
         "org.github.chinlinlee.dcm777.net.StudyQueryTaskInject",
         "org.github.chinlinlee.dcm777.net.SeriesQueryTask",
         "org.github.chinlinlee.dcm777.net.SeriesQueryTaskInject",
+        "org.github.chinlinlee.dcm777.net.InstanceQueryTask",
+        "org.github.chinlinlee.dcm777.net.InstanceQueryTaskInject",
         "org.github.chinlinlee.dcm777.net.SimpleCStoreSCP",
         "org.github.chinlinlee.dcm777.net.SimpleCMoveSCP",
         "org.github.chinlinlee.dcm777.net.SimpleCGetSCP",
@@ -79,6 +81,7 @@ const generator = new TypescriptBulkDefinitionGenerator();
         "org.github.chinlinlee.dcm777.dcmqrscp.SendStgCmtResult",
         "org.github.chinlinlee.dcm777.dcmqrscp.RetrieveTaskImpl",
         "org.github.chinlinlee.dcm777.common.Common",
+        "org.github.chinlinlee.dcm2jpg.Dcm2JpgExecutor",
         "org.dcm4che3.tool.common.CLIUtils",
         "org.dcm4che3.net.SSLManagerFactory",
         "org.dcm4che3.audit.ActiveParticipant",
@@ -98,7 +101,11 @@ const generator = new TypescriptBulkDefinitionGenerator();
         "org.dcm4che3.audit.ParticipantObjectDetail",
         "org.dcm4che3.audit.ParticipantObjectIdentification",
         "org.dcm4che3.audit.ParticipantObjectIdentificationBuilder",
-        "org.dcm4che3.audit.SOPClass"
+        "org.dcm4che3.audit.SOPClass",
+        "org.dcm4che3.imageio.codec.TransferSyntaxType",
+        "org.dcm4che3.imageio.codec.Transcoder",
+        "jakarta.json.Json",
+        "java.io.FileOutputStream",
     ]);
 
     // Save the definitions to a directory
