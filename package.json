@@ -13,7 +13,7 @@
     "commander": "^11.0.0",
     "glob": "^10.3.3",
     "java-bridge": "2.6.0",
-    "java-ts-definition-generator": "1.0.0"
+    "java-ts-definition-generator": "1.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.5.0"

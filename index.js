@@ -2,13 +2,13 @@ const { readFile, writeFile } = require("fs/promises");
 const path = require("path");
 const glob = require("glob");
 const { appendClasspath, ensureJvm } = require("java-bridge");
-const { TypescriptBulkDefinitionGenerator } = require("java-ts-definition-generator");
+const { TypescriptDefinitionGenerator } = require("java-ts-definition-generator");
 
 async function replaceToString() {
     let tsFiles = glob.sync("**/*.ts", {
         root: path.join(__dirname, "./src/java-wrapper")
     });
-    console.log(tsFiles.length);
+    console.log("generate " + tsFiles.length + " typescript files");
     for(let tsFile of tsFiles) {
         let content = await readFile(tsFile, "utf-8");
         content = content.replace("public toString(): Promise<string>;", "public toString(): string;");
@@ -25,10 +25,9 @@ ensureJvm();
 for (let i = 0; i < depJarFiles.length; i++) {
     appendClasspath(depJarFiles);
 }
-const generator = new TypescriptBulkDefinitionGenerator();
+// const generator = new TypescriptBulkDefinitionGenerator();
 (async () => {
-    // Generate definitions for the provided modules
-    await generator.generate([
+    const needGenerateClasses = [
         "org.dcm4che3.data.ElementDictionary",
         "org.dcm4che3.data.Tag",
         "org.dcm4che3.data.UID",
@@ -120,7 +119,11 @@ const generator = new TypescriptBulkDefinitionGenerator();
         "org.dcm4che3.imageio.codec.Transcoder",
         "jakarta.json.Json",
         "java.io.FileOutputStream",
-    ]);
+    ];
+
+    const generator = new TypescriptDefinitionGenerator(needGenerateClasses);
+    // Generate definitions for the provided modules
+    await generator.createModuleDeclarations();
 
     // Save the definitions to a directory
     await generator.save(path.join(__dirname, "./src/java-wrapper"));

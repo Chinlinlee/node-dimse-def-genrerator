@@ -10,7 +10,7 @@ const options = program.opts();
 const path = require("path");
 const glob = require("glob");
 const { appendClasspath, ensureJvm } = require("java-bridge");
-const { TypescriptBulkDefinitionGenerator } = require("java-ts-definition-generator");
+const { TypescriptDefinitionGenerator } = require("java-ts-definition-generator");
 
 let depJarFiles = glob.sync("**/*.jar", {
     root: path.join(__dirname, "./java-jars")
@@ -21,11 +21,11 @@ for (let i = 0; i < depJarFiles.length; i++) {
     appendClasspath(depJarFiles);
 }
 
-const generator = new TypescriptBulkDefinitionGenerator();
-
 (async () => {
+
+    const generator = new TypescriptDefinitionGenerator(options.classname);
     // Generate definitions for the provided modules
-    await generator.generate(options.classname);
+    await generator.createModuleDeclarations();
 
     // Save the definitions to a directory
     await generator.save(path.join(__dirname, "./src/java-wrapper"));
