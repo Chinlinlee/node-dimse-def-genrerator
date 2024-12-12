@@ -119,6 +119,24 @@ for (let i = 0; i < depJarFiles.length; i++) {
         "org.dcm4che3.imageio.codec.Transcoder",
         "jakarta.json.Json",
         "java.io.FileOutputStream",
+        "java.nio.file.Paths",
+        //# region weasis-dicom-tools
+        "org.dcm4che3.img.op.MaskArea",
+        "org.dcm4che3.img.stream.DicomFileInputStream",
+        "org.dcm4che3.img.stream.ImageDescriptor",
+        "org.dcm4che3.img.util.Editable",
+        "org.dcm4che3.img.util.SupplierEx",
+        "org.dcm4che3.img.Transcoder",
+        "org.dcm4che3.img.DicomImageReader",
+        "org.dcm4che3.img.ImageRendering",
+        "org.opencv.core.CvType",
+        "org.opencv.core.MatOfInt",
+        "org.opencv.imgcodecs.Imgcodecs",
+        "org.weasis.core.util.FileUtil",
+        "org.weasis.opencv.data.ImageCV",
+        "org.weasis.opencv.data.PlanarImage",
+        "org.weasis.opencv.op.ImageProcessor"
+        //# endregion
     ];
 
     const generator = new TypescriptDefinitionGenerator(needGenerateClasses);
