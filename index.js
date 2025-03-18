@@ -91,6 +91,8 @@ for (let i = 0; i < depJarFiles.length; i++) {
         "org.github.chinlinlee.dcm777.net.SimpleCMoveSCP",
         "org.github.chinlinlee.dcm777.net.SimpleCGetSCP",
         "org.github.chinlinlee.dcm777.net.SimpleStgCmtSCP",
+        "org.github.chinlinlee.dcm777.net.SimpleMPPSScp",
+        "org.github.chinlinlee.dcm777.net.MPPSScpInject",
         "org.github.chinlinlee.dcm777.dcmqrscp.SendStgCmtResult",
         "org.github.chinlinlee.dcm777.dcmqrscp.RetrieveTaskImpl",
         "org.github.chinlinlee.dcm777.common.Common",
